@@ -1,0 +1,24 @@
+#titleText{
+    color:#B8C1EC;
+    text-align: center;
+    font-size: 5vh;
+}
+.descriptionBox{
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    color: #232946;
+    border-radius: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+.utilityBar{
+    text-align: center;
+}
+#idShowImage{
+    max-height: 40rem;
+    max-width: 40rem;
+}
+#showImageBody{
+    background-color: #232946;
+}
+
+/* Make css */

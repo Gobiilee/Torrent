@@ -1,0 +1,14 @@
+#avatarComment{
+    width: 5vh;
+    height: 5vh;
+    border-radius: 2vh;
+}
+#cardComment{
+    background-color: #232946;
+    color: white;
+}
+#commentBox{
+    width: 70%;
+    height: 50%;
+    color: white;
+}

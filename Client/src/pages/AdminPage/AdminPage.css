@@ -1,0 +1,17 @@
+#colAdmin{
+    background-color: #B8C1EC;
+    border-radius: 10%;
+    overflow-y: scroll;
+}
+#rowAdmin{
+    justify-content: space-between;
+}
+#divCol{
+    width: 30%;
+    color: white;
+    font-size: auto;
+    overflow: auto;
+    padding: 1rem;
+    border: 2px solid white;
+    text-align: center;
+}

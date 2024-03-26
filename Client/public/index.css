@@ -1,0 +1,21 @@
+#root{
+    align-items: center;
+    justify-content: center;
+    background-color: #232946;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+body{
+    background-color: #232946;
+}
+.iText{
+    font-weight: bold;
+    color: rgb(141, 206, 252);
+}
+.fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: scroll;
+}
