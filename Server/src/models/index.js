@@ -4,10 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const config = require('../config/config.json')['development'];
 const db = {};
 let sequelize;
-sequelize = new Sequelize(config.database, config.username, config.password, config);
+sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASS, {
+  dialect: 'mssql',
+  host: 'GOBI'
+});
 
 fs
   .readdirSync(__dirname)

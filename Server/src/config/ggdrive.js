@@ -1,8 +1,9 @@
-const {google} = require('googleapis');
+const { google } = require('googleapis');
+const path = require('path');
 const fs = require('fs');
 
 // Load client secrets from a local file.
-const rawdata = fs.readFileSync('ggconfig.json');
+const rawdata = fs.readFileSync(path.join(__dirname, 'ggconfig.json'));
 const credentials = JSON.parse(rawdata);
 
 const clientEmail = credentials.client_email;
