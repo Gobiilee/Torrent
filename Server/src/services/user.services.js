@@ -3,24 +3,32 @@ const sendEmail = require("./email.services")
 const jwt = require("jsonwebtoken")
 const { resolve } = require("path")
 const env = require("dotenv").config()
+import forge from 'node-forge';
 
-function userLogin(username, hashPassword) {
+function verifySignature(message, signature, publicKey) {
+    const publicKeyObject = forge.pki.publicKeyFromPem(publicKey);
+    const md = forge.md.sha256.create();
+    md.update(message, 'utf8');
+    const signatureBytes = forge.util.decode64(signature);
+    const isValid = publicKeyObject.verify(md.digest().bytes(), signatureBytes);
+    return isValid;
+  }
+
+  function userLogin(username, message, signature) {
     return new Promise(async(resolve, reject) => {
         try {
             let userData = {}
             let isExist = await checkUsername(username)
             if (isExist){
                 let user = await db.User.findOne({
-                    attributes: ['id', 'username', 'image', 'role', 'password', 'isVerified'],
+                    attributes: ['id', 'username', 'image', 'role', 'publicKey'],
                     where: {username: username},
                     raw: true
                 })
                 if(user){
-                    let check = (hashPassword === user.password) ? true : false
-                    if(check && user.isVerified){
+                    let check = verifySignature(message, signature, user.publicKey)
+                    if(check){
                         userData.status = "success"
-                        delete user.password
-                        delete user.isVerified
                         userData.user = user
                     }else{
                         userData.status = "error"
@@ -65,8 +73,7 @@ function userRegister(data) {
                 await db.User.create({
                     username: data.username,
                     email: data.email,
-                    isVerified: false,
-                    password: data.password,
+                    publicKey: data.publicKey,
                     role: 0
                 })
                 const token = jwt.sign({
@@ -97,7 +104,6 @@ function userVerify(token) {
                 where: {username: username.username}
             })
             if(user){
-                user.isVerified = true
                 user.save()
                 data.status = "success"
             }else{
@@ -117,7 +123,7 @@ function getAllUsers(userId) {
             if(userId === 'all'){
                 user = await db.User.findAll({
                     attributes:{
-                        exclude: ['password']
+                        exclude: ['publicKey']
                     }
                 })
             }
@@ -125,7 +131,7 @@ function getAllUsers(userId) {
                 user = await db.User.findOne({
                     where: {id: userId},
                     attributes:{
-                        exclude: ['password']
+                        exclude: ['publicKey']
                     }
                 })
             }
@@ -146,11 +152,9 @@ function getProfile(userId) {
             })
             data.numOfImage = findImage.length
             data.like = 0
-            data.star = 0
             data.image = []
             for(let i = 0; i < findImage.length; i++){
                 data.like = data.like + findImage[i].numOfLike
-                data.star = data.star + findImage[i].numOfStar
                 data.image.push(findImage[i].id)
             }
             resolve(data)

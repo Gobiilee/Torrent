@@ -15,11 +15,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      isVerified: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-      },
-      password: {
+      publicKey: {
         type: Sequelize.STRING
       },
       role: {
