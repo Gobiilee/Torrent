@@ -10,7 +10,7 @@ import {
   Form,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/alt-logo.png";
+import logo from "../assets/images/logo.png";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
 import setCookie from "../hooks/setCookie";
@@ -145,7 +145,7 @@ function NavbarWibu() {
             <img
               src={logo}
               alt="Avatar Logo"
-              style={{ width: "12vh", display: "inline" }}
+              style={{ width: "9vh", display: "inline" }}
               className="justify-content-center"
             />
           </Navbar.Brand>

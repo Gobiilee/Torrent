@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../../assets/images/alt-logo.png";
+import logo from "../../../assets/images/logo.png";
 import "./login.css";
 import {
   Button,
@@ -88,7 +88,7 @@ export default function Login() {
               <div className="form-outline mb-3">
                 <FaKey className="FaKey" size={18} color={"white"} />
                 <label className="form-label textL" for="form3Example4">
-                  |Private key
+                  |Password
                 </label>
                 <input
                   type="password"

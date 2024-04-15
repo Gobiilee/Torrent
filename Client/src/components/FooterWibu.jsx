@@ -29,7 +29,7 @@ function FooterWibu() {
           Server_deploy
         </a>
       </p>
-      <p>Torrent Wallpaper</p>
+      <p>Wibu Wallpaper</p>
     </div>
   );
 }
