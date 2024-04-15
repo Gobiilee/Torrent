@@ -3,7 +3,7 @@ const sendEmail = require("./email.services")
 const jwt = require("jsonwebtoken")
 const { resolve } = require("path")
 const env = require("dotenv").config()
-import forge from 'node-forge';
+const forge = require('node-forge');
 
 function verifySignature(message, signature, publicKey) {
     const publicKeyObject = forge.pki.publicKeyFromPem(publicKey);
