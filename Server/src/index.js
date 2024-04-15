@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/users', require("./routes/users"));
-app.use('/feedback', require("./routes/feedback"));
 app.use('/category', require("./routes/category"));
 app.use('/getview', require("./routes/view"));
 app.use('/upload', require('./routes/storage/upload'));
@@ -27,7 +26,6 @@ app.use('/search', require('./routes/search'));
 app.use('/comment', require('./routes/comment'));
 app.use('/image', require('./routes/image'));
 app.use('/alternative', require('./routes/alternative'));
-app.use('/star', require('./routes/star'));
 // // var OPTIONS = {
 // //     key: fs.readFileSync(path.join(__dirname, '../key.pem')),
 // //     cert: fs.readFileSync(path.join(__dirname, '../cert.pem'))
