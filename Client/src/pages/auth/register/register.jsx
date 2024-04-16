@@ -27,7 +27,6 @@ import { generateKey } from "../../../services/keyServices";
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [privateKey, setPrivateKey] = useState("");
   const [publicKey, setPublicKey] = useState("");
@@ -75,8 +74,8 @@ export default function Register() {
       if (data.status === "success") {
         toast.dark(
           "Registered successfully with username: " +
-            username +
-            ", please check email to verify user"
+          username +
+          ", please check email to verify user"
         );
         setShow(true);
       } else if (data.status === "error") {
@@ -90,14 +89,7 @@ export default function Register() {
     }
   }
   function checkFirstHandError() {
-    if (password.length < 8) {
-      toast.dark("Password is less than 8 character");
-      console.log(username);
-      console.log(email);
-      console.log(password);
-    } else {
-      handleRegister();
-    }
+    handleRegister();
   }
   return (
     <section className="vh-100">
@@ -124,19 +116,6 @@ export default function Register() {
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
-              </div>
-              <div className="form-outline mb-3">
-                <FaKey className="FaKey" size={18} color={"white"} />
-                <label className="form-label textL" for="form3Example4">
-                  |Password
-                </label>
-                <input
-                  type="password"
-                  id="form3Example4"
-                  className="form-control form-control-lg"
-                  placeholder="Enter password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
               </div>
               <div className="form-outline mb-3">
                 <FaKey className="FaKey" size={18} color={"white"} />

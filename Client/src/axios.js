@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://localhost:8888',
+    baseURL: 'http://localhost:8888',
     withCredentials: true
 });
 //https://cnpmapi.azurewebsites.net

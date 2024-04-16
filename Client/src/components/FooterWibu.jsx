@@ -7,29 +7,29 @@ function FooterWibu() {
       id="footerP"
     >
       <p>
-        Made by group 5, Github:{" "}
+        Made by 20127072 - 20127424:{" "}
         <a
-          href="https://github.com/tienhoangggg/cnpm.git"
+          href="https://github.com/Gobiilee/Torrent.git"
           className="text-muted"
         >
           Core
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://github.com/tienhoangggg/cnpm_client"
+          href="https://github.com/Gobiilee/Torrent.git"
           className="text-muted"
         >
           Client_deploy
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://github.com/tienhoangggg/cnpm_server"
+          href="https://github.com/Gobiilee/Torrent.git"
           className="text-muted"
         >
           Server_deploy
         </a>
       </p>
-      <p>Torrent Wallpaper</p>
+      <p>Torrent</p>
     </div>
   );
 }

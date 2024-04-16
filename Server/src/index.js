@@ -5,15 +5,15 @@ var app = express();
 app.use(cookie());
 const connectDB = require("./config/db-config");
 connectDB();
-// var cors = require('cors')
-// app.use(cors(
-//     {
-//         origin: 'https://wibuwallpaper.azurewebsites.net',
-//         credentials: true,
-//         exposedHeaders: ["set-cookie"],
-//         methods: ["GET", "POST", "PUT", "DELETE"]
-//     }
-// ));
+var cors = require('cors')
+app.use(cors(
+    {
+        origin: 'http://localhost:3000/',
+        credentials: true,
+        exposedHeaders: ["set-cookie"],
+        methods: ["GET", "POST", "PUT", "DELETE"]
+    }
+));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

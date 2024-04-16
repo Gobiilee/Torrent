@@ -1,7 +1,5 @@
 let db = require("../models/index");
-const sendEmail = require("./email.services");
 const jwt = require("jsonwebtoken");
-const { resolve } = require("path");
 const env = require("dotenv").config();
 const forge = require("node-forge");
 
@@ -84,7 +82,6 @@ function userRegister(data) {
             expiresIn: process.env.JWT_EXPIRES,
           }
         );
-        sendEmail.sendEmail(data.email, data.username, token);
         userData.status = "success";
       } else {
         userData.status = "error";
