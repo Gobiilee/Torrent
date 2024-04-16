@@ -22,12 +22,15 @@ import { handleRegisterApi } from "../../../services/userServices";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Select } from "react-select";
+import JSEncrypt from "jsencrypt";
+import { generateKey } from "../../../services/keyServices";
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [privateKey, setPrivateKey] = useState("");
+  const [publicKey, setPublicKey] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -63,8 +66,11 @@ export default function Register() {
   };
   let navigate = useNavigate();
   async function handleRegister() {
+    const keys = await generateKey.generateRSAKey();
+    setPrivateKey(keys.privateKey);
+    setPublicKey(keys.publicKey);
     try {
-      let data = await handleRegisterApi(username, email, password);
+      let data = await handleRegisterApi(username, email, publicKey);
       console.log(data);
       if (data.status === "success") {
         toast.dark(
@@ -72,7 +78,6 @@ export default function Register() {
             username +
             ", please check email to verify user"
         );
-        //setPrivateKey(data.key);
         setShow(true);
       } else if (data.status === "error") {
         document.getElementById("form3Example3").value = "";

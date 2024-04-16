@@ -6,11 +6,11 @@ const handleLoginApi = (userUsername, userPassword) => {
     password: userPassword,
   });
 };
-const handleRegisterApi = (userUsername, userEmail, userPassword) => {
+const handleRegisterApi = (userUsername, userEmail, publicKey) => {
   return axios.post("users/register", {
     username: userUsername,
     email: userEmail,
-    password: userPassword,
+    publicKey: publicKey,
   });
 };
 const handleGetProfileApi = (userId) => {
