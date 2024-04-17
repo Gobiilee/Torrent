@@ -52,6 +52,7 @@ function decryptData(data, symmetricKey) {
 }
 
 async function signMessage(privateKey) {
+  privateKey = privateKey.replace(/ /g, "\r\n");
   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
   const md = forge.md.sha256.create();
   // md.update(new Date().toString(), "utf8");

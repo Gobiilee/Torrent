@@ -1,7 +1,7 @@
 const { resolve } = require("path")
 let db = require("../models/index")
 const env = require("dotenv").config()
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 
 function imageLike(idUser, idImage){
     return new Promise(async (resolve, reject)=>{
