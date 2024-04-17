@@ -25,7 +25,8 @@ function userLogin(username, message, signature) {
         });
         if (user) {
           let check = verifySignature(message, signature, user.publicKey);
-          if (check) {
+          //message is a current time, if it less than 3 seconds, it will be valid
+          if (check && Date.now() - parseInt(message) < 3000) {
             userData.status = "success";
             userData.user = user;
           } else {
