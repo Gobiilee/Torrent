@@ -73,8 +73,7 @@ export default function Register() {
       if (data.status === "success") {
         toast.dark(
           "Registered successfully with username: " +
-          username +
-          ", please check email to verify user"
+          username
         );
         setShow(true);
       } else if (data.status === "error") {

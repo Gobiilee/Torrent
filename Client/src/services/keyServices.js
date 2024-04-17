@@ -1,6 +1,6 @@
 import forge from "node-forge";
 
-async function generateRSAKey(keyLength = 2048) {
+function generateRSAKey(keyLength = 2048) {
   const rsa = forge.pki.rsa.generateKeyPair({ bits: keyLength });
   return {
     publicKey: forge.pki.publicKeyToPem(rsa.publicKey),
@@ -8,7 +8,7 @@ async function generateRSAKey(keyLength = 2048) {
   };
 }
 
-async function generateAESKey(publicKeyA, publicKeyB) {
+function generateAESKey(publicKeyA, publicKeyB) {
   const symmetricKey = forge.random.getBytesSync(32).toString();
   const encryptedSymmetricKeyA = forge.pki
     .publicKeyFromPem(publicKeyA)
@@ -55,46 +55,23 @@ async function signMessage(privateKey) {
   privateKey = privateKey.replace(/ /g, "\r\n");
   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
   const md = forge.md.sha256.create();
-  // md.update(new Date().toString(), "utf8");
-  md.update(new Date().getTime().toString(), "utf8");
+  const time = new Date().getTime().toString();
+  md.update(time, 'utf8');
   const signature = privateKeyObject.sign(md);
   return {
     signature: forge.util.encode64(signature),
-    // time: new Date().toString(), // time maybe not as the same line 49 ??
-    time: new Date().getTime().toString(),
+    time: time,
   };
 }
 
-// async function signMessage(privateKey) {
-//   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
-//   const md = forge.md.sha256.create();
-//   const currentTime = new Date().getTime(); // Lấy thời gian hiện tại dưới dạng số nguyên
-//   md.update(currentTime.toString(), "utf8"); // Sử dụng thời gian hiện tại dưới dạng số nguyên
-//   const signature = privateKeyObject.sign(md);
-//   return {
-//     signature: forge.util.encode64(signature),
-//     time: currentTime, // Trả về thời gian dưới dạng số nguyên
-//   };
-// }
-
-
-//test
-// const { publicKey, privateKey } = generateRSAKey();
-// const { publicKey2, privateKey2 } = generateRSAKey();
-// const { encryptedSymmetricKey, encryptedSymmetricKey2 } = generateAESKey(publicKey, publicKey2);
-// const data = 'ZTdlYjViY2QwYmM5OGY2NTVjMzg3NGQ5YTNmYTU2NzA6OWJjNzA2MzE5OGI4MTY4ZWY1NWMxNzJlZmRjZjNjNzI=';
-// const symmetricKey = 'ykMF/s6pVZPwCChEXL8cfD1N/NxkZzRDLbTX832NerI=';
-
-// const keyA = await generateRSAKey();
-// const keyB = await generateRSAKey();
-// const { encryptedSymmetricKeyA, encryptedSymmetricKeyB } = await generateAESKey(keyA.publicKey, keyB.publicKey);
-// const symmetricKey = await decryptAESKey(encryptedSymmetricKeyA, keyA.privateKey);
-// const data = 'Hello World';
-// const encryptedData = encryptData(data, symmetricKey);
-// const decryptedData = decryptData(atob(data), atob(symmetricKey));
-// console.log('Original data:', data);
-// console.log('Encrypted data:', encryptedData);
-// console.log('Decrypted data:', decryptedData);
+function verifySignature(message, signature, publicKey) {
+  const publicKeyObject = forge.pki.publicKeyFromPem(publicKey);
+  const md = forge.md.sha256.create();
+  md.update(message, "utf8");
+  const signatureBytes = forge.util.decode64(signature);
+  const isValid = publicKeyObject.verify(md.digest().bytes(), signatureBytes);
+  return isValid;
+}
 
 export const generateKey = {
   generateRSAKey,
