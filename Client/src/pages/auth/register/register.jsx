@@ -22,7 +22,6 @@ import { handleRegisterApi } from "../../../services/userServices";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Select } from "react-select";
-import JSEncrypt from "jsencrypt";
 import { generateKey } from "../../../services/keyServices";
 export default function Register() {
   const [username, setUsername] = useState("");

@@ -54,13 +54,28 @@ function decryptData(data, symmetricKey) {
 async function signMessage(privateKey) {
   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
   const md = forge.md.sha256.create();
-  md.update(new Date().toString(), "utf8");
+  // md.update(new Date().toString(), "utf8");
+  md.update(new Date().getTime().toString(), "utf8");
   const signature = privateKeyObject.sign(md);
   return {
     signature: forge.util.encode64(signature),
-    time: new Date().toString(), // time maybe not as the same line 49 ??
+    // time: new Date().toString(), // time maybe not as the same line 49 ??
+    time: new Date().getTime().toString(),
   };
 }
+
+// async function signMessage(privateKey) {
+//   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
+//   const md = forge.md.sha256.create();
+//   const currentTime = new Date().getTime(); // Lấy thời gian hiện tại dưới dạng số nguyên
+//   md.update(currentTime.toString(), "utf8"); // Sử dụng thời gian hiện tại dưới dạng số nguyên
+//   const signature = privateKeyObject.sign(md);
+//   return {
+//     signature: forge.util.encode64(signature),
+//     time: currentTime, // Trả về thời gian dưới dạng số nguyên
+//   };
+// }
+
 
 //test
 // const { publicKey, privateKey } = generateRSAKey();

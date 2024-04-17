@@ -1,9 +1,10 @@
 import axios from "../axios";
 
-const handleLoginApi = (userUsername, userPassword) => {
+const handleLoginApi = (userUsername, userMessage, userSignature) => {
   return axios.post("users/login", {
     username: userUsername,
-    password: userPassword,
+    message: userMessage,
+    signature: userSignature,
   });
 };
 const handleRegisterApi = (userUsername, userEmail, publicKey) => {
