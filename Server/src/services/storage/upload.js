@@ -33,12 +33,13 @@ const upload = async (file, fileName, fileType) => {
 }
 //add db
 const addDBimages = async (id, imageName, idUser, description) => {
-    await db.Image.create({
-        id: id,
-        imageName: imageName,
-        idUser: idUser,
-        description: description
-    })
+    // await db.Image.create({
+    //     id: id,
+    //     imageName: imageName,
+    //     idUser: idUser,
+    //     description: description
+    // })
+    await db.sequelize.query(`INSERT INTO images (id, imageName, idUser, description) VALUES ('${id}', '${imageName}', '${idUser}', '${description}')`);
 };
 //check tag
 const checkTag = async (nameCate) => {

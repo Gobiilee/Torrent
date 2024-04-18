@@ -1,38 +1,38 @@
 const { resolve } = require("path")
 let db = require("../models/index")
 const env = require("dotenv").config()
-const Op = require('sequelize').Op
+const Op = require('Sequelize').Op
 
-function imageLike(idUser, idImage){
-    return new Promise(async (resolve, reject)=>{
+function imageLike(idUser, idImage) {
+    return new Promise(async (resolve, reject) => {
         try {
             let data = {}
             let check = await checkIdUser(idUser)
-            if(check){
+            if (check) {
                 check = await checkIdImage(idImage)
-                if(check){
+                if (check) {
                     check = await checkLike(idUser, idImage)
-                    if(!check){
-                    await db.Like.create({
-                        idImage: idImage,
-                        idUser: idUser
-                    })
-                    let image = await db.Image.findOne({
-                        where: {id: idImage}
-                    })
-                    image.numOfLike = image.numOfLike + 1
-                    image.save()
-                    data.status = "success"
-                    data.message = "create like successfully"
-                }else{
-                    data.status = "error"
-                    data.message = "image already like"
-                }
-                }else{
+                    if (!check) {
+                        await db.Like.create({
+                            idImage: idImage,
+                            idUser: idUser
+                        })
+                        let image = await db.Image.findOne({
+                            where: { id: idImage }
+                        })
+                        image.numOfLike = image.numOfLike + 1
+                        image.save()
+                        data.status = "success"
+                        data.message = "create like successfully"
+                    } else {
+                        data.status = "error"
+                        data.message = "image already like"
+                    }
+                } else {
                     data.status = "error"
                     data.message = "image not found"
                 }
-            }else{
+            } else {
                 data.status = "error"
                 data.message = "user not found"
             }
@@ -43,36 +43,36 @@ function imageLike(idUser, idImage){
     })
 }
 
-function imageStar(idUser, idImage){
-    return new Promise(async (resolve, reject)=>{
+function imageStar(idUser, idImage) {
+    return new Promise(async (resolve, reject) => {
         try {
             let data = {}
             let check = await checkIdUser(idUser)
-            if(check){
+            if (check) {
                 check = await checkIdImage(idImage)
-                if(check){
+                if (check) {
                     check = await checkStar(idUser, idImage)
-                    if(!check){
-                    await db.Star.create({
-                        idImage: idImage,
-                        idUser: idUser
-                    })
-                    let image = await db.Image.findOne({
-                        where: {id: idImage}
-                    })
-                    image.numOfStar = image.numOfStar + 1
-                    image.save()
-                    data.status = "success"
-                    data.message = "create star successfully"
-                }else{
-                    data.status = "error"
-                    data.message = "image already star"
-                }
-                }else{
+                    if (!check) {
+                        await db.Star.create({
+                            idImage: idImage,
+                            idUser: idUser
+                        })
+                        let image = await db.Image.findOne({
+                            where: { id: idImage }
+                        })
+                        image.numOfStar = image.numOfStar + 1
+                        image.save()
+                        data.status = "success"
+                        data.message = "create star successfully"
+                    } else {
+                        data.status = "error"
+                        data.message = "image already star"
+                    }
+                } else {
                     data.status = "error"
                     data.message = "image not found"
                 }
-            }else{
+            } else {
                 data.status = "error"
                 data.message = "user not found"
             }
@@ -84,19 +84,19 @@ function imageStar(idUser, idImage){
 }
 
 function imageReport(idImage) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             let data = {}
             isExist = checkIdImage(idImage)
-            if(isExist){
+            if (isExist) {
                 let image = await db.Image.findOne({
-                    where: {id: idImage}
+                    where: { id: idImage }
                 })
                 image.numOfReport = image.numOfReport + 1
                 image.save()
                 data.status = "success"
                 data.message = "report image successfully"
-            }else{
+            } else {
                 data.status = "error"
                 data.message = "report image fail"
             }
@@ -108,11 +108,11 @@ function imageReport(idImage) {
 }
 
 function imageGet(idImage) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             console.log(idImage)
             let image = await db.Image.findOne({
-                where: {id: idImage}
+                where: { id: idImage }
             })
             resolve(image)
         } catch (error) {
@@ -121,8 +121,8 @@ function imageGet(idImage) {
     })
 }
 
-function imageDislike(idUser, idImage){
-    return new Promise(async(resolve, reject)=>{
+function imageDislike(idUser, idImage) {
+    return new Promise(async (resolve, reject) => {
         try {
             let data = {}
             let isExist = await db.Like.findOne({
@@ -131,10 +131,10 @@ function imageDislike(idUser, idImage){
                     IdImage: idImage
                 }
             })
-            if (isExist){
+            if (isExist) {
                 await isExist.destroy();
                 let image = await db.Image.findOne({
-                    where: {id: idImage}
+                    where: { id: idImage }
                 })
                 image.numOfLike = image.numOfLike - 1
                 image.save()
@@ -148,8 +148,8 @@ function imageDislike(idUser, idImage){
     })
 }
 
-function imageDisStar(idUser, idImage){
-    return new Promise(async(resolve, reject)=>{
+function imageDisStar(idUser, idImage) {
+    return new Promise(async (resolve, reject) => {
         try {
             let data = {}
             let isExist = await db.Star.findOne({
@@ -158,10 +158,10 @@ function imageDisStar(idUser, idImage){
                     IdImage: idImage
                 }
             })
-            if (isExist){
+            if (isExist) {
                 await isExist.destroy();
                 let image = await db.Image.findOne({
-                    where: {id: idImage}
+                    where: { id: idImage }
                 })
                 image.numOfStar = image.numOfStar - 1
                 image.save()
@@ -177,14 +177,14 @@ function imageDisStar(idUser, idImage){
 
 
 function checkIdUser(IdUser) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             let user = await db.User.findOne({
-                where: {id: IdUser}
+                where: { id: IdUser }
             })
-            if(user){
+            if (user) {
                 resolve(true)
-            }else{
+            } else {
                 resolve(false)
             }
         } catch (error) {
@@ -194,14 +194,14 @@ function checkIdUser(IdUser) {
 }
 
 function checkIdImage(idImage) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             let image = await db.Image.findOne({
-                where: {id: idImage}
+                where: { id: idImage }
             })
-            if(image){
+            if (image) {
                 resolve(true)
-            }else{
+            } else {
                 resolve(false)
             }
         } catch (error) {
@@ -211,7 +211,7 @@ function checkIdImage(idImage) {
 }
 
 function checkLike(idUser, idImage) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             let isExist = await db.Like.findOne({
                 where: {
@@ -219,9 +219,9 @@ function checkLike(idUser, idImage) {
                     IdImage: idImage
                 }
             })
-            if(isExist){
+            if (isExist) {
                 resolve(true)
-            }else{
+            } else {
                 resolve(false)
             }
         } catch (error) {
@@ -231,7 +231,7 @@ function checkLike(idUser, idImage) {
 }
 
 function checkStar(idUser, idImage) {
-    return new Promise(async (resolve, reject)=>{
+    return new Promise(async (resolve, reject) => {
         try {
             let isExist = await db.Star.findOne({
                 where: {
@@ -239,9 +239,9 @@ function checkStar(idUser, idImage) {
                     IdImage: idImage
                 }
             })
-            if(isExist){
+            if (isExist) {
                 resolve(true)
-            }else{
+            } else {
                 resolve(false)
             }
         } catch (error) {

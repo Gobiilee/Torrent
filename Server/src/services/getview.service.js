@@ -1,12 +1,11 @@
 var db = require('../models/index');
-const getImages = async (tags,time,sortby,num) => {
+const getImages = async (tags, time, sortby, num) => {
     try {
         var q = 'where ((categories.name =\'\'';
         if (tags == undefined) { tags = [] }
         else
             tags = tags.split(',');
-        if (tags.length !== 0)
-        {
+        if (tags.length !== 0) {
             q = 'where ((categories.name = \'' + tags[0] + '\'';
             for (let i = 1; i < tags.length; i++) {
                 q = q + 'OR categories.name = \'' + tags[i] + '\'';
@@ -25,7 +24,7 @@ const getImages = async (tags,time,sortby,num) => {
             sqlSort = ' images.numOfStar desc';
         if (num == undefined)
             num = 10;
-        var images = await db.sequelize.query('SELECT images.id FROM images WHERE((not exists(select categories.name from categories '+q+'(categories.name not in(select CateOfImages.nameCate from CateOfImages where CateOfImages.idImage = images.id)))))'+sqlTime+') ORDER BY '+sqlSort+' LIMIT ' + num)
+        var images = await db.sequelize.query('SELECT images.id FROM images WHERE((not exists(select categories.name from categories ' + q + '(categories.name not in(select CateOfImages.nameCate from CateOfImages where CateOfImages.idImage = images.id)))))' + sqlTime + ') ORDER BY ' + sqlSort)
         images = images[0];
         for (let i = 0; i < images.length; i++) {
             let image = await db.Image.findOne({
@@ -41,5 +40,5 @@ const getImages = async (tags,time,sortby,num) => {
     }
 }
 module.exports = {
-    getImages : getImages
+    getImages: getImages
 }
