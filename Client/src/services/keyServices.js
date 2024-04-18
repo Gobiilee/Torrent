@@ -1,6 +1,6 @@
 import forge from "node-forge";
 
-function generateRSAKey(keyLength = 2048) {
+function generateRSAKey(keyLength = 512) {
   const rsa = forge.pki.rsa.generateKeyPair({ bits: keyLength });
   return {
     publicKey: forge.pki.publicKeyToPem(rsa.publicKey),
@@ -52,7 +52,10 @@ function decryptData(data, symmetricKey) {
 }
 
 async function signMessage(privateKey) {
-  privateKey = privateKey.replace(/ /g, "\r\n");
+  privateKey = privateKey.replace("-----BEGIN RSA PRIVATE KEY-----", "");
+  privateKey = privateKey.replace("-----END RSA PRIVATE KEY-----", "");
+  privateKey = privateKey.replace(/ /g, "\n");
+  privateKey = "-----BEGIN RSA PRIVATE KEY-----" + privateKey + "-----END RSA PRIVATE KEY-----";
   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
   const md = forge.md.sha256.create();
   const time = new Date().getTime().toString();
@@ -62,15 +65,6 @@ async function signMessage(privateKey) {
     signature: forge.util.encode64(signature),
     time: time,
   };
-}
-
-function verifySignature(message, signature, publicKey) {
-  const publicKeyObject = forge.pki.publicKeyFromPem(publicKey);
-  const md = forge.md.sha256.create();
-  md.update(message, "utf8");
-  const signatureBytes = forge.util.decode64(signature);
-  const isValid = publicKeyObject.verify(md.digest().bytes(), signatureBytes);
-  return isValid;
 }
 
 export const generateKey = {

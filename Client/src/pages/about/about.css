@@ -1,27 +1,32 @@
 h2 {
     font-size: 24px;
     text-transform: uppercase;
-    color: #303030;
+    color: #ffffff;
     font-weight: 600;
     margin-bottom: 30px;
 }
-.col-sm-4{
-    color: black;
+
+.col-sm-4 {
+    color: rgb(255, 255, 255);
 }
+
 h4 {
     font-size: 19px;
     line-height: 1.375em;
-    color: #000000;
+    color: #ffffff;
     font-weight: 400;
     margin-bottom: 30px;
 }
-.pag{
-    background-color: white;
-    color: black;
+
+.pag {
+    background-color: #171741;
+    color: rgb(255, 255, 255);
 }
-.page2{
-    background-color: white;
+
+.page2 {
+    background-color: #171741;
 }
+
 .jumbotron {
     background-color: #171741;
     color: #fff;
@@ -31,16 +36,16 @@ h4 {
 
 
 .bg-grey {
-    background-color: #f6f6f6;
+    background-color: #171741;
 }
 
 .logo-small {
-    color: #171741;
+    color: #fcfcfc;
     font-size: 50px;
 }
 
 .logo {
-    color: #171741;
+    color: #ffffff;
     font-size: 200px;
 }
 
@@ -59,19 +64,21 @@ h4 {
 .carousel-control.right,
 .carousel-control.left {
     background-image: none;
-    color: #171741;
+    color: #ffffff;
 }
 
 .carousel-indicators li {
-    border-color: #171741;
+    border-color: #6f6f88;
 }
 
 .carousel-indicators li.active {
     background-color: #171741;
 }
-.row{
-    color: black;
+
+.row {
+    color: rgb(255, 255, 255);
 }
+
 .item h4 {
     font-size: 19px;
     line-height: 1.375em;
@@ -95,9 +102,9 @@ h4 {
 }
 
 .panel-footer .btn:hover {
-    border: 1px solid #171741;
-    background-color: #fff !important;
-    color: #171741;
+    border: 1px solid #272740;
+    background-color: #171741 !important;
+    color: #ffffff;
 }
 
 .panel-heading {
@@ -120,7 +127,7 @@ h4 {
 }
 
 .panel-footer h4 {
-    color: #aaa;
+    color: #ffffff;
     font-size: 14px;
 }
 
@@ -134,7 +141,7 @@ h4 {
 footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #171741;
+    color: #ffffff;
 }
 
 .slideanim {

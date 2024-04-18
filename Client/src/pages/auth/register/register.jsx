@@ -69,7 +69,6 @@ export default function Register() {
     setPublicKey(keys.publicKey);
     try {
       let data = await handleRegisterApi(username, email, publicKey);
-      console.log(data);
       if (data.status === "success") {
         toast.dark(
           "Registered successfully with username: " +

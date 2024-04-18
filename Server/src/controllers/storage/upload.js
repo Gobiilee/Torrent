@@ -3,7 +3,7 @@ exports.upload = async (req, res) => {
     const file = req.file.buffer;
     const fileName = req.body.fileName;
     const fileType = req.file.mimetype;
-    if (fileType === 'application/octet-stream') {
+    if (true) {
         const fileId = await upload.upload(file, fileName, fileType);
         await upload.addDBimages(fileId, fileName, req.idUser, req.body.description);
         const Tags = req.body.category;

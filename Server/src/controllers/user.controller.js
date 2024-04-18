@@ -3,22 +3,26 @@ const userService = require("../services/user.services")
 const jwt = require("jsonwebtoken")
 const env = require("dotenv").config()
 
-let handleLogin = async(req, res)=>{
+let handleLogin = async (req, res) => {
     try {
         let username = req.body.username
         let message = req.body.message
         let signature = req.body.signature
         let userData = await userService.userLogin(username, message, signature)
-        if(userData.status === 'success'){
+        if (userData.status === 'success') {
             const token = jwt.sign({
                 idUser: userData.user.id
             }, process.env.JWT_SECRET, {
                 expiresIn: process.env.JWT_EXPIRES
             });
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n');
+            console.log(process.env.JWT_SECRET);
+            console.log(process.env.JWT_EXPIRES);
+            console.log('\n\n\n\n\n\n\n\n\n\n\n\n');
             res.cookie("token", token, {
                 httpOnly: true,
                 sameSite: 'none',
-                secure: true,
+                secure: false,
                 maxage: process.env.JWT_MAXAGE
             });
         }
@@ -32,10 +36,10 @@ let handleLogin = async(req, res)=>{
             status: "error from server",
         })
     }
-    
+
 }
 
-let handleRegister = async(req,res)=>{
+let handleRegister = async (req, res) => {
     try {
         let data = await userService.userRegister(req.body)
         return res.status(200).json({
@@ -48,7 +52,7 @@ let handleRegister = async(req,res)=>{
     }
 }
 
-let getVerifyEmail = async(req, res)=>{
+let getVerifyEmail = async (req, res) => {
     try {
         let userToken = req.params.token
         let data = await userService.userVerify(userToken)
@@ -62,7 +66,7 @@ let getVerifyEmail = async(req, res)=>{
     }
 }
 
-let handleGetAllUsers = async(req,res)=>{
+let handleGetAllUsers = async (req, res) => {
     try {
         let id = req.body.id; //all, id
         let user = await userService.getAllUsers(id)
@@ -78,7 +82,7 @@ let handleGetAllUsers = async(req,res)=>{
     }
 }
 
-let handleGetProfile = async(req, res)=>{
+let handleGetProfile = async (req, res) => {
     try {
         let user = await userService.getProfile(req.params.id)
         return res.status(200).json({
@@ -96,14 +100,15 @@ let handleGetProfile = async(req, res)=>{
     }
 }
 
-const changeName = async(req, res)=>{
+const changeName = async (req, res) => {
     try {
         let user = await userService.changeName(req.idUser, req.body.newName)
-        if(user){
-        return res.status(200).json({
-            status: 'success'
-        })}
-        else{
+        if (user) {
+            return res.status(200).json({
+                status: 'success'
+            })
+        }
+        else {
             return res.status(200).json({
                 status: 'name is already exist'
             })

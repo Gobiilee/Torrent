@@ -4,7 +4,10 @@ const env = require("dotenv").config();
 const forge = require("node-forge");
 
 function verifySignature(message, signature, publicKey) {
-  publicKey = publicKey.replace(/  /g, "\r\n");
+  publicKey = publicKey.replace("-----BEGIN PUBLIC KEY-----", "");
+  publicKey = publicKey.replace("-----END PUBLIC KEY-----  ", "");
+  publicKey = publicKey.replace(/  /g, "\n");
+  publicKey = "-----BEGIN PUBLIC KEY-----" + publicKey + "-----END PUBLIC KEY-----";
   const publicKeyObject = forge.pki.publicKeyFromPem(publicKey);
   const md = forge.md.sha256.create();
   md.update(message, "utf8");

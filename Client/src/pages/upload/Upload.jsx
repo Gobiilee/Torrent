@@ -30,12 +30,12 @@ function Upload() {
   const [category, setCategory] = useState([]);
   const [text, setText] = useState("");
   const [alternativeFile, setAlternativeFile] = useState(null);
-  const [categoryOption,setCategoryOption]=useState([]);
+  const [categoryOption, setCategoryOption] = useState([]);
   const [selectValue, setSelectValue] = useState(null);
   const name = useState("");
   let navigate = useNavigate();
   useEffect(() => {
-    (async() => {
+    (async () => {
       const data = await getCategoryValues();
 
       setCategoryOption(data.name.map(name => {
@@ -56,6 +56,8 @@ function Upload() {
         300,
         300,
         "JPEG",
+        // "PNG",
+        // "Torrent",
         100,
         0,
         (uri) => {
@@ -80,7 +82,7 @@ function Upload() {
         const { result } = e.target;
         if (result && !isCancel) {
           setFileDataURL(result);
-          
+
         }
       };
       fileReader.readAsDataURL(afile);
@@ -94,7 +96,7 @@ function Upload() {
   }, [afile]);
 
 
- 
+
 
   function checkCate() {
     if (category.length < 1) {
@@ -103,10 +105,10 @@ function Upload() {
     } else return true;
   }
 
-  //const cateOp=async()=>{
-  //const cateName=await getCate(name)
-  //setCategoryOption(name);
-  //}
+  // const cateOp = async () => {
+  //   const cateName = await getCate(name)
+  //   setCategoryOption(name);
+  // }
 
   const handleSubmission = async () => {
     if (!checkCate()) {
@@ -143,10 +145,10 @@ function Upload() {
       const response1 = await axios.post("upload/", alternativeForm);
       console.log(response.fileId);
       console.log(response1.fileId);
-      addAlter(response.fileId,response1.fileId);
-      addAlter(response1.fileId,response.fileId);
+      addAlter(response.fileId, response1.fileId);
+      addAlter(response1.fileId, response.fileId);
       //const alter = await axios.post("alternative/add",response.fileId ,response1.fileId);
-     // console.log(alter)
+      // console.log(alter)
       //const alter1 = await axios.post("alternative/add",response1.fileId ,response.fileId);
     } catch (error) {
       console.log(error);
@@ -155,8 +157,8 @@ function Upload() {
     toast.dark("Upload success");
 
     setFile(null);
-    
-    
+
+
 
   };
 
@@ -194,7 +196,7 @@ function Upload() {
         <div className="upload__fields">
           <div className="upload__field">
             <p className="upload__field-label">
-               Description
+              Description
             </p>
             <input
               className="upload__field-input"

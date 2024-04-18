@@ -9,85 +9,47 @@ import getCookie from "../../hooks/getCookie";
 import removeCookie from "../../hooks/removeCookie";
 import NavbarWibu from "../../components/NavbarWibu";
 import FooterWibu from "../../components/FooterWibu";
-// Use div and class for this
-// ABOUT WIBU WALLPAPER PAGE
-// What is Wibu Wallpaper?
-// Wibu Wallpaper is a photo sharing tool in the form of social networks, posting and classifying as emotional photos. Users create and manage photo collections by different themes, such as by events, prefer... Users can view other people's collections, "Like" photos if they like, "Star" photos you want to store, and "Report" but the photo negatively affects the community of participants.
-// With the images on Wibu Wallpaper, you will always find ideas to inspire. As you discover your favorite photos, save them with "Star" to keep your ideas organized and easy to find. You can also post photos or, more broadly, a collection to share ideas with others on Wibu Wallpaper.
-// Discover ideas!
-// Use the search bar to discover ideas, people, and trends by keywords. Explore recommended themes or search for your own.
-// Like, Save, Share and Report
-// Under each photo, there will be a "Like" icon so you can express your feelings to the photo in the most direct way. "Star" a lovely star-shaped icon used to save "star" photos in your eyes. Share the photos you like with the link. This "Report" is a tool to punish the images that bring negativity to the members of this common house.
-// Collection
-// You can create your own collection of topics, or we will combine photos with similar topics to create the best possible collection
-// OUR VALUES
-// MISSION:
-// THE JOURNEY OF YOUTH IS ALWAYS CONNECTED WITH THE JOURNEY OF FINDING YOUR ONE, FINDING YOUR OWN UNIQUE "I", ON THAT JOURNEY, SOMETIMES THE SOUNDS AND COLORS AROUND MAKE US A MESS, WE ARE CAUSED, FOLLOW, AND WRONG MYSELF, WHAT IS BETTER POWERFUL AND LONELY WHEN WE DON'T RECEIVE MYSELF AND REJECT MYSELF AND THAT IS THE DESIGN PHILOSOPHY OF WIBU WALLPAPER MINING IMAGES THROUGH THE EMOTION OF THE USER AND CONNECTING IT UNIQUE AND NOT TASTY, YOU CAN ALWAYS FIND AFTER EVERY IMAGE USERS SHARE IS STORIES, WE HAVE TRANSFORMED THE IMAGE LANGUAGE, THE VOICES OF YOUNGAGES WE TRANSFORMED TO PICTURE LANGUAGE PLEASE ENJOY YOUR WIBU WALLPAPER, UNDERSTAND YOUR LANGUAGE, WITH ALL CREATIVITY AND IMAGINATION BOLD, FRIVOLOUS, AND NEEDLESS
-// VISION:
-// WIBU WALLPAPER IS ALWAYS ORIENTED TOWARDS USER FEELING, WE ALWAYS CHANGE TO GIVE US USERS THE BEST EXPERIENCE. BESIDE, WE WILL RESEARCH THE DEVELOPMENT OF VR AND APPLICATIONS INTO SOFTWARE FROM THESE USERS CAN FEEL THE MOST TRUE EMOTION THAT PHOTOS CONTRACT
-// CONTACT
-// Contact us and we'll get back to you within 24 hours.
-// Ho Chi Minh, VietNam
-// +84 091xxxxxx
-// 20127xxx@student.hcmus.edu.vn
-
 function AboutPage() {
   return (
     <>
       <NavbarWibu />
       <div className="jumbotron text-center">
-        <h1>Company</h1>
-        <p>We provide you with great wallpaper for your devices</p>
+        <h1>eTorrent</h1>
+        <p>Torrent công nghệ đến từ tương lai</p>
       </div>
       <div id="about" className="pag">
         <div className="row">
           <div className="col-sm-8">
-            <h2>About Wibu Wallpaper Page</h2>
+            <h2>eTorrent</h2>
             <br />
-            <h4>What is Wibu Wallpaper?</h4>
+            <h4>Khám Phá Thế Giới Torrent Mới</h4>
             <p>
-              Wibu Wallpaper is a photo sharing tool in the form of social
-              networks, posting and classifying as emotional photos. Users
-              create and manage photo collections by different themes, such as
-              by events, prefer... Users can view other people's collections,
-              "Like" photos if they like, "Star" photos you want to store, and
-              "Report" but the photo negatively affects the community of
-              participants.
+              Chào mừng bạn đến với eTorrent - nơi tận hưởng thế giới đầy màu sắc của torrent một cách đơn giản và thuận tiện nhất! eTorrent là một nền tảng hoàn toàn mới, được xây dựng với mục tiêu mang lại trải nghiệm tải torrent tốt nhất cho mọi người, với sự đa dạng, an toàn và dễ sử dụng.Với eTorrent, bạn có thể dễ dàng tìm kiếm và tải xuống hàng triệu tập tin torrent từ nhiều lĩnh vực khác nhau như phim, nhạc, sách, trò chơi và phần mềm. Từ những bộ phim bom tấn đang hot nhất đến những album nhạc mới nhất của nghệ sĩ yêu thích, tất cả đều có mặt trên eTorrent, chờ đợi bạn khám phá.
+              Với giao diện đơn giản và dễ sử dụng, eTorrent mang lại trải nghiệm tìm kiếm và tải torrent một cách nhanh chóng và thuận tiện. Bạn có thể tìm kiếm theo tên tập tin, danh mục, hoặc sự phổ biến, giúp bạn dễ dàng tìm thấy những gì bạn đang tìm kiếm. Hơn nữa, eTorrent cung cấp các tính năng lọc và sắp xếp linh hoạt để bạn có thể tìm kiếm chính xác theo yêu cầu của mình.
+              Chúng tôi hiểu rằng an ninh và bảo mật là vấn đề quan trọng đối với người dùng torrent, và vì vậy, eTorrent cam kết bảo vệ thông tin cá nhân của bạn và cung cấp các tập tin torrent an toàn. Tất cả các tập tin được kiểm tra và xác minh để đảm bảo tính nguyên vẹn và an toàn cho người dùng.
             </p>
             <br />
             <p>
-              With the images on Wibu Wallpaper, you will always find ideas to
-              inspire. As you discover your favorite photos, save them with
-              "Star" to keep your ideas organized and easy to find. You can also
-              post photos or, more broadly, a collection to share ideas with
-              others on Wibu Wallpaper.
+              Ngoài ra, eTorrent cũng hỗ trợ cộng đồng người dùng trong việc chia sẻ và tải lên các tập tin torrent. Bằng cách tham gia vào cộng đồng, bạn có thể chia sẻ tập tin của mình và khám phá các tập tin mới từ người dùng khác, tạo ra một không gian mở và phong phú cho việc chia sẻ nội dung.
+              eTorrent không chỉ là nơi tải torrent, mà còn là cộng đồng đam mê, nơi bạn có thể khám phá, chia sẻ và kết nối với những người cùng sở thích. Hãy đồng hành cùng chúng tôi trên hành trình khám phá thế giới torrent mới, với eTorrent - nền tảng torrent hoàn hảo cho mọi người!
             </p>
             <br />
-            <h4>Discover ideas!</h4>
+            <h4>Khám phá!</h4>
             <p>
-              Use the search bar to discover ideas, people, and trends by
-              keywords. Explore recommended themes or search for your own.
+              Sử dụng thanh tìm kiếm để khám phá ý tưởng, con người và xu hướng theo từ khóa. Khám phá các chủ đề được đề xuất hoặc tìm kiếm chủ đề của riêng bạn.  </p>
+            <br />
+            <h4>Thể hiện quan điểm cá nhân!!!</h4>
+            <p>
+              Dưới mỗi file sẽ có biểu tượng “Thích” để bạn có thể bày tỏ cảm xúc của mình với bức ảnh một cách trực tiếp nhất. "Ngôi sao" một biểu tượng hình ngôi sao xinh xắn dùng để lưu lại những bức ảnh "ngôi sao" trong mắt bạn. Chia sẻ những bức ảnh bạn thích với liên kết. “Báo cáo” này là công cụ trừng phạt những hình ảnh mang lại tiêu cực cho các thành viên trong ngôi nhà chung này.
             </p>
             <br />
-            <h4>Like, Save, Share and Report</h4>
+            <h4>Bộ sưu tập!</h4>
             <p>
-              Under each photo, there will be a "Like" icon so you can express
-              your feelings to the photo in the most direct way. "Star" a lovely
-              star-shaped icon used to save "star" photos in your eyes. Share
-              the photos you like with the link. This "Report" is a tool to
-              punish the images that bring negativity to the members of this
-              common house.
-            </p>
-            <br />
-            <h4>Collection</h4>
-            <p>
-              You can create your own collection of topics, or we will combine
-              photos with similar topics to create the best possible collection
-            </p>
+              Bạn có thể tạo bộ sưu tập chủ đề của riêng mình hoặc chúng tôi sẽ kết hợp với các chủ đề tương tự để tạo ra bộ sưu tập tốt nhất có thể </p>
             <br />
           </div>
           <div className="col-sm-4">
-            <span className="xxxx ảnh"></span>
+            <span className="Torrent"></span>
           </div>
         </div>
       </div>
@@ -98,42 +60,30 @@ function AboutPage() {
             <span className="glyphicon glyphicon-globe logo slideanim"></span>
           </div>
           <div className="col-sm-8">
-            <h2>Our Values</h2>
+            <h2>Giá trị đem đến!</h2>
             <br />
-            <h4>MISSION: </h4>
+            <h4>Nhiệm vụ: </h4>
             <p>
-              THE JOURNEY OF YOUTH IS ALWAYS CONNECTED WITH THE JOURNEY OF
-              FINDING YOUR ONE, FINDING YOUR OWN UNIQUE "I", ON THAT JOURNEY,
-              SOMETIMES THE SOUNDS AND COLORS AROUND MAKE US A MESS, WE ARE
-              CAUSED, FOLLOW, AND WRONG MYSELF, WHAT IS BETTER POWERFUL AND
-              LONELY WHEN WE DON'T RECEIVE MYSELF AND REJECT MYSELF AND THAT IS
-              THE DESIGN PHILOSOPHY OF WIBU WALLPAPER MINING IMAGES THROUGH THE
-              EMOTION OF THE USER AND CONNECTING IT UNIQUE AND NOT TASTY, YOU
-              CAN ALWAYS FIND AFTER EVERY IMAGE USERS SHARE IS STORIES, WE HAVE
-              TRANSFORMED THE IMAGE LANGUAGE, THE VOICES OF YOUNGAGES WE
-              TRANSFORMED TO PICTURE LANGUAGE PLEASE ENJOY YOUR WIBU WALLPAPER,
-              UNDERSTAND YOUR LANGUAGE, WITH ALL CREATIVITY AND IMAGINATION
-              BOLD, FRIVOLOUS, AND NEEDLESS
+              Mang lại Trải Nghiệm Tải Torrent Tốt Nhất: eTorrent cam kết cung cấp một nền tảng tải torrent dễ sử dụng, linh hoạt và hiệu quả nhất cho người dùng. Chúng tôi không chỉ tập trung vào việc cung cấp một giao diện thân thiện và dễ dàng tiếp cận, mà còn đảm bảo tính an toàn và bảo mật cho mọi tập tin được chia sẻ trên nền tảng của chúng tôi.
+              Tạo Ra Một Cộng Đồng Torrent Phong Phú: eTorrent tạo điều kiện cho việc chia sẻ, kết nối và hợp tác giữa các thành viên của cộng đồng torrent. Chúng tôi khuyến khích sự tham gia tích cực từ các người dùng, tạo ra một không gian mở và đa dạng, nơi mọi người có thể khám phá và chia sẻ nội dung theo sở thích của họ.
+              Tôn Trọng Quyền Riêng Tư và Bảo Vệ An Toàn Mạng: eTorrent cam kết bảo vệ thông tin cá nhân của người dùng và đảm bảo tính bảo mật cho mọi giao dịch trên nền tảng của chúng tôi. Chúng tôi tuân thủ các quy định về quyền riêng tư và an ninh mạng, đảm bảo rằng người dùng có thể tải torrent một cách an toàn và không bị ảnh hưởng đến quyền riêng tư của họ.
+              Khuyến Khích Sáng Tạo và Hợp Tác: eTorrent khuyến khích sự sáng tạo và hợp tác giữa các thành viên của cộng đồng. Chúng tôi tạo điều kiện cho việc chia sẻ tập tin torrent mới, phát triển các dự án cộng đồng, và xây dựng một môi trường hỗ trợ cho sự sáng tạo và tiến bộ.
             </p>
             <br />
-            <h4>VISION: </h4>
+            <h4>Tầm Nhìn của eTorrent: </h4>
             <p>
-              WIBU WALLPAPER IS ALWAYS ORIENTED TOWARDS USER FEELING, WE ALWAYS
-              CHANGE TO GIVE US USERS THE BEST EXPERIENCE. BESIDE, WE WILL
-              RESEARCH THE DEVELOPMENT OF VR AND APPLICATIONS INTO SOFTWARE FROM
-              THESE USERS CAN FEEL THE MOST TRUE EMOTION THAT PHOTOS CONTRACT
-            </p>
+              Tại eTorrent, chúng tôi tin rằng mọi người đều có quyền truy cập vào thông tin và nội dung một cách dễ dàng và tự do. Tầm nhìn của chúng tôi là tạo ra một nền tảng torrent tiên tiến và bảo mật, mang lại trải nghiệm tải torrent tốt nhất cho mọi người, đồng thời tôn trọng và bảo vệ quyền riêng tư của người dùng. Chúng tôi khát vọng xây dựng một cộng đồng mở và phong phú, nơi mọi người có thể chia sẻ, kết nối và khám phá nội dung một cách tự do và an toàn. </p>
           </div>
         </div>
       </div>
       <div id="contact" className="container-fluid bg-grey ">
-        <h2 className="text-center">CONTACT</h2>
-        <p className="text-center">
+        <h2 className="text-center text-white">CONTACT</h2>
+        <p className="text-center text-white">
           Contact us and we'll get back to you within 24 hours.
         </p>
-        <p className="text-center">Ho Chi Minh, VietNam</p>
-        <p className="text-center">+84 091xxxxxxx</p>
-        <p className="text-center">20127xxx@student.hcmus.edu.vn</p>
+        <p className="text-center text-white">Ho Chi Minh, VietNam</p>
+        <p className="text-center text-white">+84 091xxxxxxx</p>
+        <p className="text-center text-white">20127072@student.hcmus.edu.vn</p>
       </div>
       <FooterWibu />
     </>

@@ -10,21 +10,21 @@ function FooterWibu() {
         Made by 20127072 - 20127424:{" "}
         <a
           href="https://github.com/Gobiilee/Torrent.git"
-          className="text-muted"
+          className="text-white"
         >
           Core
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://github.com/Gobiilee/Torrent.git"
-          className="text-muted"
+          href="https://github.com/Gobiilee/Torrent/tree/main/Client"
+          className="text-white"
         >
           Client_deploy
         </a>
         &nbsp;&nbsp;
         <a
-          href="https://github.com/Gobiilee/Torrent.git"
-          className="text-muted"
+          href="https://github.com/Gobiilee/Torrent/tree/main/Server"
+          className="text-white"
         >
           Server_deploy
         </a>
