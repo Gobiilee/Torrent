@@ -15,13 +15,9 @@ let handleLogin = async (req, res) => {
             }, process.env.JWT_SECRET, {
                 expiresIn: process.env.JWT_EXPIRES
             });
-            console.log('\n\n\n\n\n\n\n\n\n\n\n\n');
-            console.log(process.env.JWT_SECRET);
-            console.log(process.env.JWT_EXPIRES);
-            console.log('\n\n\n\n\n\n\n\n\n\n\n\n');
             res.cookie("token", token, {
                 httpOnly: true,
-                sameSite: 'none',
+                sameSite: 'Strict',
                 secure: false,
                 maxage: process.env.JWT_MAXAGE
             });
