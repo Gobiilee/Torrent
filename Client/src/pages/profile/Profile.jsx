@@ -1,6 +1,6 @@
 import { Button, Navbar, ListGroup, Dropdown, Carousel } from "react-bootstrap";
-import logo from "../../assets/images/logo.png";
-import welcome from "../../assets/images/welcome.png";
+import file from "../../assets/images/file.png";
+import cat from "../../assets/images/cat.png";
 import "./Profile.css";
 import NavbarWibu from "../../components/NavbarWibu";
 import getCookie from "../../hooks/getCookie";
@@ -82,7 +82,7 @@ function Profile() {
                     style={{ width: "150px" }}
                   >
                     <img
-                      src="https://drive.google.com/uc?export=view&id=1e7tzVJ9N8lllMXNPhvwX1GxxJpDRHoxs"
+                      src={cat}
                       alt="Generic placeholder image"
                       className="img-fluid img-thumbnail mt-4 mb-2"
                       style={{ width: "100px", zIndex: "1" }}
@@ -109,7 +109,7 @@ function Profile() {
                       <p className="mb-1 h5">
                         {getCookie("imgArr").split(",").length}
                       </p>
-                      <p className="small text-muted mb-0">Photos</p>
+                      <p className="small text-muted mb-0">Files</p>
                     </div>
                     {/* <div className="px-3">
                       <p className="small text-muted mb-0">Likes</p>
@@ -121,7 +121,7 @@ function Profile() {
                 </div>
                 <div className="card-body p-4 text-black">
                   <div className="d-flex justify-content-between align-items-center mb-4">
-                    <p className="lead fw-normal mb-0">Recent photos</p>
+                    <p className="lead fw-normal mb-0">Recent file</p>
                     {/* <p className="mb-0">
                       <a href="#!" className="text-muted">
                         Show all
@@ -137,8 +137,9 @@ function Profile() {
                       <div>
                         <img
                           src={
-                            "https://drive.google.com/uc?export=view&id=" +
-                            linkT
+                            file
+                            // +
+                            // linkT
                           }
                           style={{ width: "100%" }}
                         />

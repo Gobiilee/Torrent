@@ -1,6 +1,7 @@
 import { Button, Navbar, ListGroup, Dropdown, Carousel } from "react-bootstrap";
 import logo from "../../assets/images/logo.png";
 import welcome from "../../assets/images/welcome.png";
+import file from "../../assets/images/file.png";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
 import setCookie from "../../hooks/setCookie";
@@ -12,6 +13,8 @@ import dataTest from "./testData";
 import { getRandomImageApi } from "../../services/imageServices";
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
+
+
 function Homepage() {
   // const [idArray, setArray] = useState("");
   let url = `${window.location.origin.toString()}/showImage/`;
@@ -144,7 +147,7 @@ function Homepage() {
         style={{ textDecoration: "none" }}
         href="/showimageforcategory/background"
       >
-        <p style={{ color: "white", padding: "1%" }}>Background</p>
+        <p style={{ color: "white", padding: "1%" }}>Movie</p>
       </a>
       <div className="masonry-with-flex">
         {testArr.map((linkT, index) => (
@@ -152,8 +155,9 @@ function Homepage() {
             <div>
               <img
                 src={
-                  "https://drive.google.com/uc?export=view&id=" +
-                  testArr[index].id
+                  file
+                  // +
+                  // testArr[index].id
                 }
                 id="anhHomePage"
               />
@@ -162,7 +166,7 @@ function Homepage() {
         ))}
       </div>
       <a style={{ textDecoration: "none" }} href="/showimageforcategory/anime">
-        <p style={{ color: "white", padding: "1%" }}>Anime</p>
+        <p style={{ color: "white", padding: "1%" }}>Image</p>
       </a>
       <div className="masonry-with-flex">
         {imgArr.map((linkT, index) => (
@@ -170,8 +174,9 @@ function Homepage() {
             <div>
               <img
                 src={
-                  "https://drive.google.com/uc?export=view&id=" +
-                  imgArr[index].id
+                  file
+                  // +
+                  // imgArr[index].id
                 }
                 id="anhHomePage"
               />

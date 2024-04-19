@@ -6,7 +6,7 @@ import {
   Carousel,
   Card,
 } from "react-bootstrap";
-import logo from "../../assets/images/logo.png";
+import file from "../../assets/images/file.png";
 import welcome from "../../assets/images/welcome.png";
 import "./ShowImage.css";
 import { Link, useParams } from "react-router-dom";
@@ -140,7 +140,8 @@ function ShowImage() {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <a
             href={
-              "https://drive.google.com/uc?export=download&id=" +
+              "https://drive.google.com/uc?export=download&id="
+              +
               alternativeID[0]
             }
           >
@@ -225,7 +226,7 @@ function ShowImage() {
           <div style={{ color: "white", display: "inline" }}>{starN}</div>
           {/* {data.star} */}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href={"https://drive.google.com/uc?export=download&id=" + imgID}>
+          <a href={file + imgID}>
             <FaDownload className="icon" size={25} color={"#EEBBC3"} />
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -279,7 +280,7 @@ function ShowImage() {
     <div id="showImageBody">
       <NavbarWibu />
       <img
-        src={"https://drive.google.com/uc?export=view&id=" + imgID}
+        src={file}
         alt="Image 1"
         className="rounded mx-auto d-block"
         id="idShowImage"

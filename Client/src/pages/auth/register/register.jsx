@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../../assets/images/alt-logo.png";
+import logo from "../../../assets/images/logo.png";
 import "./register.css";
 import {
   Button,
@@ -64,18 +64,19 @@ export default function Register() {
   };
   let navigate = useNavigate();
   async function handleRegister() {
-    const keys = await generateKey.generateRSAKey();
-    setPrivateKey(keys.privateKey);
-    setPublicKey(keys.publicKey);
     try {
-      let data = await handleRegisterApi(username, email, publicKey);
+      const keys = generateKey.generateRSAKey();
+      setPrivateKey(keys.privateKey);
+      setPublicKey(keys.publicKey);
+      let data = await handleRegisterApi(username, email, keys.publicKey);
       if (data.status === "success") {
         toast.dark(
           "Registered successfully with username: " +
           username
         );
         setShow(true);
-      } else if (data.status === "error") {
+      }
+      else if (data.status === "error") {
         document.getElementById("form3Example3").value = "";
         document.getElementById("form3Example4").value = "";
         toast.dark("Sign up failed, try again");

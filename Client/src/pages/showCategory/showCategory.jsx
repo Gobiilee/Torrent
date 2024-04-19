@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import setCookie from "../../hooks/setCookie";
 import getCookie from "../../hooks/getCookie";
 import removeCookie from "../../hooks/removeCookie";
+import file from "../../assets/images/file.png";
 import NavbarWibu from "../../components/NavbarWibu";
 import FooterWibu from "../../components/FooterWibu";
 import { getCategoryValues } from "../../services/imageServices";
@@ -75,8 +76,9 @@ function ShowCategory() {
                 <Card.Img
                   variant="top"
                   src={
-                    "https://drive.google.com/uc?export=view&id=" +
-                    fakeImg[index]
+                    file
+                    // +
+                    // fakeImg[index]
                   }
                   style={{ maxHeight: "50vh", maxWidth: "100%" }}
                 />

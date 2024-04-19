@@ -8,50 +8,8 @@ function generateRSAKey(keyLength = 512) {
   };
 }
 
-function generateAESKey(publicKeyA, publicKeyB) {
-  const symmetricKey = forge.random.getBytesSync(32).toString();
-  const encryptedSymmetricKeyA = forge.pki
-    .publicKeyFromPem(publicKeyA)
-    .encrypt(symmetricKey);
-  const encryptedSymmetricKeyB = forge.pki
-    .publicKeyFromPem(publicKeyB)
-    .encrypt(symmetricKey);
-  return {
-    encryptedSymmetricKeyA,
-    encryptedSymmetricKeyB,
-  };
-}
-
-function decryptAESKey(encryptedSymmetricKey, privateKey) {
-  const symmetricKey = forge.pki
-    .privateKeyFromPem(privateKey)
-    .decrypt(encryptedSymmetricKey);
-  return symmetricKey;
-}
-
-function encryptData(data, symmetricKey) {
-  const iv = forge.random.getBytesSync(16);
-  const cipher = forge.cipher.createCipher("AES-CBC", symmetricKey);
-  cipher.start({ iv });
-  cipher.update(forge.util.createBuffer(data));
-  cipher.finish();
-  const encryptedData = cipher.output.data;
-  return `${forge.util.encode64(iv)}:${forge.util.encode64(encryptedData)}`;
-}
-
-function decryptData(data, symmetricKey) {
-  const parts = data.split(":");
-  const iv = forge.util.decode64(parts[0]);
-  const encryptedData = forge.util.decode64(parts[1]);
-  const decipher = forge.cipher.createDecipher("AES-CBC", symmetricKey);
-  decipher.start({ iv });
-  decipher.update(forge.util.createBuffer(encryptedData));
-  decipher.finish();
-  const decryptedData = decipher.output.data;
-  return decryptedData;
-}
-
-async function signMessage(privateKey) {
+function signMessage(privateKey) {
+  privateKey = privateKey.trim();
   privateKey = privateKey.replace("-----BEGIN RSA PRIVATE KEY-----", "");
   privateKey = privateKey.replace("-----END RSA PRIVATE KEY-----", "");
   privateKey = privateKey.replace(/ /g, "\n");
@@ -69,9 +27,5 @@ async function signMessage(privateKey) {
 
 export const generateKey = {
   generateRSAKey,
-  generateAESKey,
-  decryptAESKey,
-  encryptData,
-  decryptData,
   signMessage,
 };

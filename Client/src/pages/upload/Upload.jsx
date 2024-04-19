@@ -49,28 +49,27 @@ function Upload() {
 
 
 
-  const resizeFile = (afile) =>
-    new Promise((resolve) => {
-      Resizer.imageFileResizer(
-        afile,
-        300,
-        300,
-        "JPEG",
-        // "PNG",
-        // "Torrent",
-        100,
-        0,
-        (uri) => {
-          resolve(uri);
-        },
-        "file"
-      );
-    });
+  // const resizeFile = (afile) =>
+  //   new Promise((resolve) => {
+  //     Resizer.imageFileResizer(
+  //       afile,
+  //       300,
+  //       300,
+  //       "JPEG",
+  //       100,
+  //       0,
+  //       (uri) => {
+  //         resolve(uri);
+  //       },
+  //       "file"
+  //     );
+  //   });
 
   const changeHandler = async (e) => {
     const fileo = e.target.files[0];
     setFile(fileo);
-    const image = await resizeFile(fileo);
+    // const image = await resizeFile(fileo);
+    const image = await fileo;
     setAlternativeFile(image);
   };
   useEffect(() => {
@@ -130,7 +129,7 @@ function Upload() {
     formData.append("description", text);
 
     alternativeForm.append("file", alternativeFile);
-
+    console.log(alternativeFile)
     alternativeForm.append("fileName", alternativeFile.name);
 
     alternativeForm.append(
@@ -143,8 +142,6 @@ function Upload() {
     try {
       const response = await axios.post("upload/", formData);
       const response1 = await axios.post("upload/", alternativeForm);
-      console.log(response.fileId);
-      console.log(response1.fileId);
       addAlter(response.fileId, response1.fileId);
       addAlter(response1.fileId, response.fileId);
       //const alter = await axios.post("alternative/add",response.fileId ,response1.fileId);
@@ -178,7 +175,7 @@ function Upload() {
             <input
               type="file"
               id="image"
-              accept=".png, .jpg, .jpeg"
+              accept=".png, .jpg, .jpeg, .mkv, .torrent, .pdf"
               onChange={changeHandler}
             />
           </div>
@@ -200,7 +197,7 @@ function Upload() {
             </p>
             <input
               className="upload__field-input"
-              placeholder="Write description for the image"
+              placeholder="Write description for this file"
               onChange={(e) => setText(e.target.value)}
             />
           </div>

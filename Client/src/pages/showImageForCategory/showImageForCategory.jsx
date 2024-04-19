@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Navbar, ListGroup, Dropdown, Carousel } from "react-bootstrap";
-import logo from "../../assets/images/logo.png";
+import file from "../../assets/images/file.png";
 import welcome from "../../assets/images/welcome.png";
 import "./showImageForCategory.css";
 import { Link, useParams } from "react-router-dom";
@@ -35,8 +35,9 @@ function ShowImageForCategory() {
             <div>
               <img
                 src={
-                  "https://drive.google.com/uc?export=view&id=" +
-                  testArr[index].id
+                  file
+                  // +
+                  // testArr[index].id
                 }
                 id="anhHomePage"
               />

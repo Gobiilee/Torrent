@@ -10,7 +10,7 @@ import {
   Form,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/alt-logo.png";
+import logo from "../assets/images/logo.png";
 import getCookie from "../hooks/getCookie";
 import removeCookie from "../hooks/removeCookie";
 import setCookie from "../hooks/setCookie";
@@ -100,7 +100,7 @@ function NavbarWibu() {
     if (isLoggedIn == 1) {
       return (
         <Link to="/upload" style={{ textDecoration: "none" }}>
-          <Dropdown.Item href="#/action-2">Upload wallpaper</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Upload eTorrent</Dropdown.Item>
         </Link>
       );
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../../assets/images/alt-logo.png";
+import logo from "../../../assets/images/logo.png";
 import "./login.css";
 import {
   Button,
@@ -38,7 +38,7 @@ export default function Login() {
         setCookie("logged", 1);
         setCookie("usrid", data.user.id);
         setCookie("imgavatar", data.user.image);
-        //setCookie("token", data.token);
+        // setCookie("token", data.token);
         setCookie("userRole", data.user.role);
         toast.dark("Logged in as " + username);
         let usrId = getCookie("usrid");

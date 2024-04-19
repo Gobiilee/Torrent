@@ -18,6 +18,7 @@ import removeCookie from "../hooks/removeCookie";
 import { Link, useParams } from "react-router-dom";
 import setCookie from "../hooks/setCookie";
 import "./cssComponent/CommentSection.css";
+import cat from "../assets/images/cat.png";
 import { FaQuestion, FaUser, FaKey, FaListUl } from "react-icons/fa";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { showImageApi } from "../services/imageServices";
@@ -82,7 +83,7 @@ function CommentSection() {
       return (
         <div style={{ textAlign: "center" }}>
           <img
-            src="https://drive.google.com/uc?export=view&id=1e7tzVJ9N8lllMXNPhvwX1GxxJpDRHoxs"
+            src={cat}
             id="avatarComment"
           />
           &nbsp;&nbsp;&nbsp;
