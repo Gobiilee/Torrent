@@ -12,6 +12,7 @@ import NavbarWibu from "../../components/NavbarWibu";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { searchApi } from "../../services/imageServices";
+import file from "../../assets/images/file.png";
 function ResultSearch() {
   const { keySearch } = useParams();
   console.log(keySearch);
@@ -40,8 +41,9 @@ function ResultSearch() {
             <div>
               <img
                 src={
-                  "https://drive.google.com/uc?export=view&id=" +
-                  imgArr[index].id
+                  file
+                  // "https://drive.google.com/uc?export=view&id=" +
+                  // imgArr[index].id
                 }
                 id="anhHomePage"
               />
