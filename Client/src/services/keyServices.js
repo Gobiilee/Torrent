@@ -8,7 +8,7 @@ function generateRSAKey(keyLength = 512) {
   };
 }
 
-function signMessage(privateKey) {
+function signMessage(privateKey, username) {
   privateKey = privateKey.trim();
   privateKey = privateKey.replace("-----BEGIN RSA PRIVATE KEY-----", "");
   privateKey = privateKey.replace("-----END RSA PRIVATE KEY-----", "");
@@ -16,12 +16,12 @@ function signMessage(privateKey) {
   privateKey = "-----BEGIN RSA PRIVATE KEY-----" + privateKey + "-----END RSA PRIVATE KEY-----";
   const privateKeyObject = forge.pki.privateKeyFromPem(privateKey);
   const md = forge.md.sha256.create();
-  const time = new Date().getTime().toString();
-  md.update(time, 'utf8');
+  const message = username;
+  md.update(message, 'utf8');
   const signature = privateKeyObject.sign(md);
   return {
     signature: forge.util.encode64(signature),
-    time: time,
+    username: message,
   };
 }
 

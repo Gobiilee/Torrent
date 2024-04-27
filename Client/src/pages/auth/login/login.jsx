@@ -30,9 +30,9 @@ export default function Login() {
 
   let navigate = useNavigate();
   async function handleLogin() {
-    const signMsg = await generateKey.signMessage(privateKey.toString());
+    const signMsg = await generateKey.signMessage(privateKey.toString(), username);
     try {
-      let data = await handleLoginApi(username, signMsg.time, signMsg.signature);
+      let data = await handleLoginApi(signMsg.username, signMsg.signature);
       if (data.status === "success") {
         setCookie("usr", username);
         setCookie("logged", 1);

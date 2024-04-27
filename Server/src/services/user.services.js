@@ -17,7 +17,7 @@ function verifySignature(message, signature, publicKey) {
   return isValid;
 }
 
-function userLogin(username, message, signature) {
+function userLogin(username, signature) {
   return new Promise(async (resolve, reject) => {
     try {
       let userData = {};
@@ -29,9 +29,8 @@ function userLogin(username, message, signature) {
           raw: true,
         });
         if (user) {
-          let check = verifySignature(message, signature, user.publicKey);
-          //message is a current time, if it less than 3 seconds, it will be valid
-          if (check && Date.now() - parseInt(message) < 3600000) {
+          let check = verifySignature(username, signature, user.publicKey);
+          if (check) {
             userData.status = "success";
             userData.user = user;
           } else {

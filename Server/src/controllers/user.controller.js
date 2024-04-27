@@ -6,9 +6,8 @@ const env = require("dotenv").config()
 let handleLogin = async (req, res) => {
     try {
         let username = req.body.username
-        let message = req.body.message
         let signature = req.body.signature
-        let userData = await userService.userLogin(username, message, signature)
+        let userData = await userService.userLogin(username, signature)
         if (userData.status === 'success') {
             const token = jwt.sign({
                 idUser: userData.user.id
