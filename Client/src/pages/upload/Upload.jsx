@@ -356,18 +356,15 @@ function Upload() {
     );
     formData.append("description", text);
     // formData.append("username", username); // Add username to form data
-    formData.append("privateKey", privateKey); // Add private key to form data
+    // formData.append("privateKey", privateKey); // Add private key to form data (why?)
 
     try {
-      // const hash = await calculateFileHash(afile);
-      const signMsg = await generateKey.signMessage(privateKey.toString(), afile);
-      const data = await handleLoginApi(signMsg.afile, signMsg.signature);
-      if (data.status === "success") {
-        const response = await axios.post("upload/", formData);
-        // formData.append("hashedFile", hash);
-        toast.dark("Upload success");
-        setFile(null);
-      }
+      // calculate hash value of the afile in here
+      const hashValue = sha256(afile).toString();
+      const signMsg = await generateKey.signMessage(privateKey.toString(), hashValue);
+      formData.append("hashValue", signMsg.signature);
+      const response = await axios.post("upload/", formData);
+      //dosomething
     } catch (error) {
       console.log(error);
     }
