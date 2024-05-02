@@ -24,6 +24,9 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      hashValue: {
+        type: Sequelize.STRING
+      },
       numOfReport: {
         type: Sequelize.INTEGER,
         defaultValue: 0

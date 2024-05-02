@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     numOfLike: DataTypes.INTEGER,
     numOfStar: DataTypes.INTEGER,
     description: DataTypes.TEXT,
+    hashValue: DataTypes.STRING,
     numOfReport: DataTypes.INTEGER
   }, {
     sequelize,
