@@ -25,6 +25,13 @@ function signMessage(privateKey, username) {
   };
 }
 
+// return hash of file
+function calculateFileHash(file) {
+  const md = forge.md.sha256.create();
+  md.update(file, 'utf8');
+  return md.digest().toHex();
+}
+
 export const generateKey = {
   generateRSAKey,
   signMessage,

@@ -359,12 +359,10 @@ function Upload() {
     // formData.append("privateKey", privateKey); // Add private key to form data (why?)
 
     try {
-      // calculate hash value of the afile in here
-      const hashValue = sha256(afile).toString();
+      const hashValue = await generateKey.calculateFileHash(afile);
       const signMsg = await generateKey.signMessage(privateKey.toString(), hashValue);
       formData.append("hashValue", signMsg.signature);
       const response = await axios.post("upload/", formData);
-      //dosomething
     } catch (error) {
       console.log(error);
     }
