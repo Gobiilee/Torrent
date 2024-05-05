@@ -35,4 +35,5 @@ function calculateFileHash(file) {
 export const generateKey = {
   generateRSAKey,
   signMessage,
+  calculateFileHash,
 };
